@@ -59,11 +59,11 @@ function colorYellow (element){
 }
 
 function colorsChange(element){
-    if(element.classList.toggle('blue')){
+    if(element.classList.toggle('green')){
         element.classList.remove('yellow')
-        element.classList.add('blue')
+        element.classList.add('green')
     }else{
-        element.classList.remove('blue');
+        element.classList.remove('green');
         element.classList.add('yellow');
     }
 }
