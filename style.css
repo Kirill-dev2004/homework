@@ -1,4 +1,30 @@
+#container-list{
+    width: 300px;
+    height: 300px;
+    border: 1px solid red;
+    margin-top: 10px;
+    overflow-y: scroll;
+}
 
+.blue{
+    background-color: blue;
+}
+.yellow{
+    background-color: yellow;
+}
+.div-flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
 
+.text{
+    max-width: 250px;
+}
+
+.cross-style{
+    padding: 0;
+    margin: 0;
+}
 
 
