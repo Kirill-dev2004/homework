@@ -5,14 +5,13 @@ const containerE = document.getElementById('container-list')
 btnE.addEventListener('click', addToDo)
 
 function onDelete(div){
-   div.remove(div)
+   div.remove()
 }
 
 function createCross(div){
     const cross = document.createElement('p')
     cross.textContent = 'X';
     cross.classList.add('cross-style')
-
 
     div.append(cross)
     cross.addEventListener('click', () => {
