@@ -1,8 +1,25 @@
 const inpE = document.getElementById('input')
 const btnE = document.getElementById('btn')
 const containerE = document.getElementById('container-list')
+const errorE = document.querySelector('.error-cont')
 
 btnE.addEventListener('click', addToDo)
+btnE.disabled = true;
+
+inpE.addEventListener('keyup', validate)
+
+function validate(event){
+    if(!event.target.value.trim()){
+        errorE.innerText = ''
+        return
+    }
+    if(event.target.value.trim().length <= 2){
+        errorE.innerText = 'Please enter more than two symbols'
+        return
+    }
+    errorE.innerText = ''
+    btnE.disabled = false
+}
 
 function onDelete(div){
    div.remove()
@@ -22,12 +39,6 @@ function createCross(div){
 
 function addToDo(){
     const inpText = inpE.value;
-
-    if(!inpText.trim()){
-        alert('Please enter some text');
-        return
-    }
-
     const element = document.createElement('div')
     const elementP = document.createElement('p')
     elementP.textContent = inpText
