@@ -31,7 +31,7 @@ function addToDo(){
     const element = document.createElement('div')
     const elementP = document.createElement('p')
     elementP.textContent = inpText
-    elementP.classList.add('text')
+    // elementP.classList.add('text')
 
     element.classList.add('div-flex')
     element.append(elementP)
