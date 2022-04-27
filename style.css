@@ -6,12 +6,14 @@
     overflow-y: auto;
 }
 
-.green{
-    background-color: green;
-}
 .yellow{
     background-color: yellow;
 }
+
+.green{
+    background-color: green;
+}
+
 .div-flex{
     display: flex;
     justify-content: space-between;

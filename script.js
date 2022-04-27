@@ -58,11 +58,5 @@ function colorYellow (element){
 }
 
 function colorsChange(element){
-    if(element.classList.toggle('green')){
-        element.classList.remove('yellow')
-        element.classList.add('green')
-    }else{
-        element.classList.remove('green');
-        element.classList.add('yellow');
-    }
+    element.classList.toggle('green')
 }
