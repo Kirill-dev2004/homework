@@ -4,17 +4,20 @@ const btnE = document.getElementById('btn')
 const containerE = document.getElementById('container-list')
 
 inpE.addEventListener('keyup', validateTodo)
+inpE.addEventListener('keydown', keyboard)
 btnE.disabled = true;
 
 btnE.addEventListener('click', addToDo)
 
-function validateTodo(event){
+function validateTodo(event){  
     if(!event.target.value.trim()){
         errorE.innerText = '';
+        btnE.disabled = true
         return
     }
     if( event.target.value.trim().length <= 2){
         errorE.innerText = 'Error, length should be > 2'
+        btnE.disabled = true
         return
     }
     errorE.innerText = '';
@@ -36,6 +39,16 @@ function createCross(div){
     })
 }
 
+function keyboard(enter){
+    if(enter.keyCode === 13){
+        addToDo() 
+        return
+    }
+    if(enter.keyCode === 8){
+    
+    }
+}
+
 
 function addToDo(){
     const inpText = inpE.value;
@@ -43,6 +56,7 @@ function addToDo(){
         alert('Enter some text')
         return
     }
+    
     const element = createElement('div')
     const elementP = createElement('p')
     elementP.textContent = inpText
@@ -52,7 +66,7 @@ function addToDo(){
     element.append(elementP)
     createCross(element)
 
-    colorYellow(element);
+    element.classList.add('yellow');
 
     element.addEventListener('click', () => {
         colorsChange(element)
@@ -72,10 +86,6 @@ function createElement(tag){
 
 function clearValue(){
     inpE.value = ''
-}
-
-function colorYellow (element){
-    element.classList.add('yellow');
 }
 
 function colorsChange(element){
