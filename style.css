@@ -11,9 +11,7 @@
     padding: 0 38px;
 }
 
-.header{
-    display: flex;
-}
+
 
 .yellow{
     background-color: yellow;
@@ -29,9 +27,9 @@
     align-items: flex-start;
 }
 
-.text{
+/* .text{
     max-width: 250px;
-}
+} */
 
 .cross-style{
     padding: 0;
@@ -39,9 +37,5 @@
     cursor: pointer;
 }
 
-.error-cont{
-    color: red;
-    font-size: 12px;
-}
 
 

@@ -1,32 +1,17 @@
 const inpE = document.getElementById('input')
 const btnE = document.getElementById('btn')
 const containerE = document.getElementById('container-list')
-const errorE = document.querySelector('.error-cont')
+
 
 btnE.addEventListener('click', addToDo)
-btnE.disabled = true;
 
-inpE.addEventListener('keyup', validate)
-
-function validate(event){
-    if(!event.target.value.trim()){
-        errorE.innerText = ''
-        return
-    }
-    if(event.target.value.trim().length <= 2){
-        errorE.innerText = 'Please enter more than two symbols'
-        return
-    }
-    errorE.innerText = ''
-    btnE.disabled = false
-}
 
 function onDelete(div){
    div.remove()
 }
 
 function createCross(div){
-    const cross = document.createElement('p')
+    const cross = document.createElement('span')
     cross.textContent = 'X';
     cross.classList.add('cross-style')
 
@@ -39,10 +24,14 @@ function createCross(div){
 
 function addToDo(){
     const inpText = inpE.value;
-    const element = document.createElement('div')
-    const elementP = document.createElement('p')
+    if(!inpText.trim()){
+        alert('Enter some text')
+        return
+    }
+    const element = createElement('div')
+    const elementP = createElement('p')
     elementP.textContent = inpText
-    // elementP.classList.add('text')
+    elementP.classList.add('text')
 
     element.classList.add('div-flex')
     element.append(elementP)
@@ -53,12 +42,18 @@ function addToDo(){
     element.addEventListener('click', () => {
         colorsChange(element)
     })
-
-    containerE.append(element);
+    addElement(element, containerE)
 
     clearValue()
 }
 
+function addElement(el, container){
+    container.append(el)
+}
+
+function createElement(tag){
+    return document.createElement(tag)
+}
 
 function clearValue(){
     inpE.value = ''
