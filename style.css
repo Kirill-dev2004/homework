@@ -6,6 +6,39 @@
     overflow-y: auto;
 }
 
+.error-cont{
+    color: red;
+    font-size: 12px;
+}
 
+.header{
+    display: flex;
+}
+
+#btn{
+    margin-left: 20px;
+    padding: 0 38px;
+}
+
+
+.yellow{
+    background-color: yellow;
+}
+
+.green{
+    background-color: green;
+}
+
+.div-flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.cross-style{
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+}
 
 
