@@ -31,12 +31,9 @@ function onDelete(div){
 function createCross(div){
     const cross = document.createElement('span')
     cross.textContent = 'X';
-    cross.classList.add('cross-style')
+    cross.classList.add('delete-todo')
 
     div.append(cross)
-    cross.addEventListener('click', () => {
-        onDelete(div)
-    })
 }
 
 function keyboard(enter){
@@ -44,10 +41,11 @@ function keyboard(enter){
         addToDo() 
         return
     }
-    if(enter.keyCode === 8){
-    
+    if(enter.shiftKey && enter.keyCode === 8){
+        inpE.value = ''
     }
 }
+
 
 
 function addToDo(){
@@ -68,9 +66,6 @@ function addToDo(){
 
     element.classList.add('yellow');
 
-    element.addEventListener('click', () => {
-        colorsChange(element)
-    })
     addElement(element, containerE)
 
     clearValue()
@@ -91,3 +86,12 @@ function clearValue(){
 function colorsChange(element){
     element.classList.toggle('green')
 }
+
+containerE.addEventListener('click', (event) => {
+    if(event.target.classList.contains('div-flex')){
+        colorsChange(event.target)
+    }else if(event.target.classList.contains('delete-todo')){
+        onDelete(event.target.parentNode)
+    }
+})
+
