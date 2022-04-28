@@ -13,7 +13,7 @@ function onDelete(div){
 function createCross(div){
     const cross = document.createElement('span')
     cross.textContent = 'X';
-    cross.classList.add('cross-style')
+    cross.classList.add('delete-todo')
     div.append(cross)
 }
 
@@ -61,7 +61,7 @@ function colorsChange(element){
 containerE.addEventListener('click', (event) => {
     if(event.target.classList.contains('div-flex')){
         colorsChange(event.target)
-    }else if(event.target.classList.contains('cross-style')){
+    }else if(event.target.classList.contains('delete-todo')){
         onDelete(event.target.parentNode)
     }
 })
