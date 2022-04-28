@@ -14,11 +14,7 @@ function createCross(div){
     const cross = document.createElement('span')
     cross.textContent = 'X';
     cross.classList.add('cross-style')
-
     div.append(cross)
-    cross.addEventListener('click', () => {
-        onDelete(div)
-    })
 }
 
 
@@ -37,15 +33,13 @@ function addToDo(){
     element.append(elementP)
     createCross(element)
 
-    colorYellow(element);
+    element.classList.add('yellow');
 
-    element.addEventListener('click', () => {
-        colorsChange(element)
-    })
     addElement(element, containerE)
 
     clearValue()
 }
+
 
 function addElement(el, container){
     container.append(el)
@@ -59,10 +53,15 @@ function clearValue(){
     inpE.value = ''
 }
 
-function colorYellow (element){
-    element.classList.add('yellow');
-}
 
 function colorsChange(element){
     element.classList.toggle('green')
 }
+
+containerE.addEventListener('click', (event) => {
+    if(event.target.classList.contains('div-flex')){
+        colorsChange(event.target)
+    }else if(event.target.classList.contains('cross-style')){
+        onDelete(event.target.parentNode)
+    }
+})
