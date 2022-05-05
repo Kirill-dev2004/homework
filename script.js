@@ -3,7 +3,7 @@ const SIZES = {
         price: 50,
         calories: 20
     },
-    AVERAGE:{
+    MIDDLE:{
         price:75,
         calories:30
     },
@@ -48,12 +48,37 @@ CreateHamburger.prototype.appendTopping = function(toping){
 }
 
 CreateHamburger.prototype.getPrice = function(){
-    return this.toppings.reduce((acc,el) => (acc+=el.price), this.burgerSize.price)
+    return this.toppings.reduce((acc,el) => {
+        return (acc+=el.price)
+    }, this.burgerSize.price)
 }
 
 CreateHamburger.prototype.getCalories = function(){
-    return this.toppings.reduce((acc, el) => (acc+=el.calories), this.burgerSize.calories)
+    return this.toppings.reduce((acc, el) => {
+       return (acc+=el.calories)
+    },this.burgerSize.calories)
 }
+///////////////////////////////////////// I made it with CLASS method////////////////////////////
+
+// class CreateHamburger {
+//     constructor(size){
+//         this.burgerSize = size
+//         this.toppings = [];
+//     }
+//     appendTopping (toping){
+//             this.toppings.push(toping)
+//     }
+//     getPrice(){
+//         return this.toppings.reduce((acc,el) => {
+//            return acc+=el.price
+//         }, this.burgerSize.price)
+//     }
+//     getCalories(){
+//         return this.toppings.reduce((acc, el) => {
+//             return acc+=el.calories
+//         },this.burgerSize.calories)
+//     }
+// }
 
 const bigBurger = new CreateHamburger(SIZES.BIG)
 
