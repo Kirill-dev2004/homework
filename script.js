@@ -27,24 +27,20 @@ class Group {
         }
         return sum / count
     }
-
 }
 
 const feGroup = new Group();
 const firstStudent = new Student('John Doe', [10, 102, 0]);
 
-
-
 feGroup.addStudent(new Student('Alex Smith', [10, 9, 8]));
 feGroup.addStudent( new Student('John Doe', [10, 10, 5, 10]));
 feGroup.addStudent(new Student('Bob Johnson', [9, 10, 10, 8]));
 
-console.log(feGroup.students); // [{},{},{}]\
+console.log(feGroup.students);
 
 const averageMark = feGroup.getAverageMark()
 
-
-console.log(averageMark); // 20
+console.log(averageMark);
 
 
 
