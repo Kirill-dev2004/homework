@@ -3,7 +3,6 @@ class Student {
       this.studentName = name;
         this.studentMarks = mark
     }
-   
 }
 
 
