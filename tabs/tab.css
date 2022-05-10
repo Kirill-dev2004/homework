@@ -1,4 +1,4 @@
-.item-title{
+/* .item-title{
     font-size: 25px;
     font-weight: bold;
     text-align: center;
@@ -20,4 +20,9 @@
 
 .display{
    opacity: 2;
-} 
+}  */
+
+.tabs{
+    display: flex;
+    gap: 30px;
+}
