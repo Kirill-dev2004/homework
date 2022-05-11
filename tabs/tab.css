@@ -22,7 +22,12 @@
    opacity: 2;
 }  */
 
-.tabs{
-    display: flex;
-    gap: 30px;
+.item-title{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.title-active{
+    background-color: red;
+    border-bottom: 1px solid blueviolet;
 }
