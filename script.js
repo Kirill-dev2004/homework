@@ -15,17 +15,29 @@ class Group {
         return this.students.push(student)
     }
     getAverageMark(){
-        let sum = 0
-        let count = 0
-        for(let student of this.students){
-            const marks = student.studentMarks
+        const marks = this.students.map((e) => {
+            const mark = e;
+          return  this.studentMarks.reduce((acc, mark) => (acc += mark),0) / studentMarks.length
+            
+        })
 
-            for(let mark of marks){
-                sum += mark
-                count++
-            }           
-        }
-        return sum / count
+
+        // const marks = student.studentMarks
+        // console.log(marks);
+
+
+        // let sum = 0
+        // let count = 0
+        // for(let student of this.students){
+        //     const marks = student.studentMarks
+        //     console.log(marks)
+
+        //     for(let mark of marks){
+        //         sum += mark
+        //         count++
+        //     }           
+        // }
+        // return sum / count 
     }
 }
 
