@@ -13,9 +13,9 @@ function onClick(){
 }
 
 function closestMenu(){
-  // const menu = [...menuE.children]
+  const menu = [...menuE.children]
   menuBtn.classList.toggle('active');
- menuE.classList.toggle('active')
+ menu.classList.toggle('active')
 }
 
 
