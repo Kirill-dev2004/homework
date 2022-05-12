@@ -17,25 +17,17 @@
 //     }
 //     getAverageMark(){ 
 //          let studentNotes =  this.students.map((e) => {
-//                 const marks =
-//                  e.students.reduce(
-//                      (acc, mar)=>
-//                 (acc+= mar.studentNotes.reduce((a,m)=>(a+=m),0)/e.studentMarks.length),
-//                 0)/ studentNotes.length
-// console.log(marks)
-    
+//             return e.studentMarks.reduce((acc, el) => {
+//                 return(acc += el)
+//             },0) /  e.studentMarks.length
+//             })
 
-//             // return e.studentMarks.reduce((acc, el) => {
-//             //     return(acc += el)
-//             // },0) /  e.studentMarks.length
-//             // })
-
-//             // return studentNotes.reduce((acc, el) =>{
-//             //     return acc+=el
-//             //  },0) / studentNotes.length
-//     })
+//             return studentNotes.reduce((acc, el) =>{
+//                 return acc+=el
+//              },0) / studentNotes.length
+//     }
 // }
-// }           
+          
 
 // const feGroup = new Group();
 // const firstStudent = new Student('John Doe', [10, 102, 0]);
@@ -87,9 +79,6 @@ const stu = [
             return this.students.push(student)
         }
         getAverageMark(){ 
-             
-        
-    
                 // return e.studentMarks.reduce((acc, el) => {
                 //     return(acc += el)
                 // },0) /  e.studentMarks.length
@@ -101,7 +90,6 @@ const stu = [
         }
     }
               
-    
     const feGroup = new Group();
     const firstStudent = new Student('John Doe', [10, 102, 0]);
     
