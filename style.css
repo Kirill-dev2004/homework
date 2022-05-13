@@ -1,12 +1,17 @@
-#menu-btn {
+.container{
+    width: 30px;
+}
+
+.menu-btn {
 	width: 30px;
 	height: 30px;
 	position: relative;
 	z-index:2;
 	overflow: hidden;
+    display: block;
 }
 
-#menu-btn > div {
+.menu-btn > div {
 	width: 30px;
 	height: 2px;
 	position: absolute;
@@ -14,31 +19,31 @@
 	left: 50%;
 	transform: translate(-50%, -50%);
 	background-color: #222222;
-	transition: all 0.5s;
+	transition:  0.5s;
 }
 
-#menu-btn > div:nth-of-type(2) {
+.menu-btn > div:nth-of-type(2) {
 	top: 10px
 }
-#menu-btn > div:nth-of-type(3) {
+.menu-btn > div:nth-of-type(3) {
 	top: 5px
 }
 
-#menu-btn.active > div:nth-of-type(1) {
+.menu-btn.active > div:nth-of-type(1) {
     top: 50%;
     transform: translate(-50%, 0%) rotate(45deg);  
 }
 
-#menu-btn.active > div:nth-of-type(2) {
+.menu-btn.active > div:nth-of-type(2) {
     display: none;
 }
 
-#menu-btn.active> div:nth-of-type(3) {
+.menu-btn.active> div:nth-of-type(3) {
     top: 50%;
     transform: translate(-50%, 0%) rotate(-45deg); 
 }
   
-#menu {
+.menu {
       position: fixed;
       top: 0px;
       text-align: center;
@@ -47,21 +52,21 @@
       height: 300px;
       padding: 15px;
       background: lightcoral;
-      transform: translateX(-100%);
+      transform: translateX(-400px);
       transition: transform 0.5s; 
   }
   
-#menu.active {
+.menu.active {
       transform: translateX(0);
 }
   
-#menu > div {
+.menu > div {
       font-size: 24px;
       font-weight: bold;
       margin-top: 10px;
 }
 
-#menu > div:hover{
+.menu > div:hover{
     background-color: gray;
 }
 
