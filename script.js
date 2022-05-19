@@ -2,6 +2,7 @@
 const inpE = document.getElementById('inp')
 const btnE = document.getElementById('btn')
 const contListE = document.getElementById('list-container')
+const templateE = document.getElementById('template')
 const url = `https://api.github.com/users/`
 
 btnE.addEventListener('click', findUsers)
@@ -12,24 +13,26 @@ function findUsers(){
   .then((r) => r.json())
   .then((r) => {
     renderList(r)
-  }) 
-
+  })
+//     .catch((e) => {   ///////тут пытался ошибку обработать и вывести, но не получилось
+//       if(e){
+//         contListE.innerHTML = 'error' + e
+//       }
+//   })
   inpE.value = ''
 }
 
 function renderList(data){
-  const avatar =  contListE.innerHTML =  `<img src='${data.avatar_url}'>`;
-  const repos =  data.innerHTML = data.public_repos
-  // contListE.innerHTML = `<div>${data.public_repos}</div>`;
- 
-    // const userAvatar = document.createElement('div')
-    // const repos = document.createElement('div')
-    // userAvatar.innerHTML = `<img src='${data.avatar_url}'>`;
-    // repos.innerHTML = `<div>${data.public_repos}</div>`;
-    // contListE.innerHTML = `<div>${data.followers}</div>`;
+  const avatar =  `<img src='${data.avatar_url}'>`;
+  const repos =  data.public_repos;
+  const follower = data.followers;
+  const following =  data.following;
+  
+  const el =  createList(avatar,repos, follower, following)
+  contListE.innerHTML = el
+}
 
-
-    // contListE.innerHTML = data.following;
-    
-    // contListE.append(userAvatar)
+function createList(avatar, repos, follower, following){
+    const el =  templateE.innerHTML.replace('{{avatar}}', avatar).replace('{{repos}}',  repos).replace('{{followers}}', follower).replace('{{following}}', following)
+    return el
 }
