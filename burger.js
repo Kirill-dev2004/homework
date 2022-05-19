@@ -10,6 +10,7 @@ class Burger{
     constructor(contE){
         this.el = contE;
         this.el.addEventListener('click', this.onClickBurg.bind(this))
+        this.el.addEventListener('mouseover', this.hoverElement)
         this.items = [...contE.children]
         this.setClassChildren()
     }
@@ -36,7 +37,9 @@ class Burger{
         }
     }
 
-    hoverElement(){
-        console.log('mouse enter')
+    hoverElement(event){
+        const target = event.target
+
+        
     }
     }
