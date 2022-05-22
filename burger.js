@@ -3,14 +3,13 @@ class Burger{
         burger: 'menu-btn',
         menu: 'menu',
         active: 'active',
-        delete_class: 'menu-burger',
+        change_class: 'menu-burger',
 
     }
     
     constructor(contE){
         this.el = contE;
         this.el.addEventListener('click', this.onClickBurg.bind(this))
-        this.el.addEventListener('mouseover', this.hoverElement)
         this.items = [...contE.children]
         this.setClassChildren()
     }
@@ -19,27 +18,34 @@ class Burger{
         const [burger, menu] = this.el.children;
         burger.classList.add(Burger.CLASSES.burger)
         menu.classList.add(Burger.CLASSES.menu)
-        menu.classList.add(Burger.CLASSES.delete_class)
+        menu.classList.add(Burger.CLASSES.change_class)
     }
 
     onClickBurg(event){
         const target = event.target;
         const [burger, menu] = this.el.children
         
-        // const menuChild = [...menu.children]   /////тут хотел добраться до дивов меню, чтобы по клику на них закрывать все///////////
-        // console.log(menuChild)
+         const menuChild = [...menu.children] 
+         menuChild.forEach((word) => {
+            word.addEventListener('mouseover', this.hoverElement)
+            word.addEventListener('mouseout', this.hoverElementDelete)
+         })
+
         if(burger === target){
             burger.classList.toggle(Burger.CLASSES.active);
             menu.classList.toggle(Burger.CLASSES.active)
-        }else{
+        }
+        else{
             burger.classList.toggle(Burger.CLASSES.active);
             menu.classList.toggle(Burger.CLASSES.active)
         }
     }
 
-    hoverElement(event){
-        const target = event.target
+    hoverElement(){
+        this.style.backgroundColor = "Grey"
+    }
 
-        
+    hoverElementDelete(){
+        this.style.backgroundColor = ''
     }
     }

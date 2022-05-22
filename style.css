@@ -7,7 +7,6 @@
     color: lightcoral;
     font-size: 24px;
     font-weight: bold;
-    cursor: pointer;
 }
 
 @media(max-width: 700px){
@@ -89,5 +88,5 @@
         font-weight: bold;
         cursor: pointer;
     }
-    
-}
+}  
+
