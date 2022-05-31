@@ -25,22 +25,22 @@ class Todo{
         this.#changeTitle = this.#changeEl.querySelector('.change-title')
         this.#changeBody = this.#changeEl.querySelector('.change-body')
         this.#http = new Http(Todo.url);
-        this.getTodos()
+        this.getTodo()
     }
 
-    getTodos(){
+    getTodo(){
         this.#http.getAll().then((d) => {
             this.#todos = d;
-            this.renderTodos(this.#todos)
+            this.renderTodo(this.#todos)
         })
     }
 
-    renderTodos(todos){
-       this.#todoContainer.innerHTML = todos.map(t => this.createTodoElement(t)).join("");
+    renderTodo(todo){
+       this.#todoContainer.innerHTML = todo.map(t => this.createTodoElement(t)).join("");
     }
 
     createTodoElement(todo){
-        return ` <div class="item ${this.changeComplete()}" id="${todo.id}">
+        return ` <div class="item ${todo.isComplete ? this.#CLASSES.todo_complete : ""}" id="${todo.id}">
         <div class="item-content">
             <div>
                 <div class="item-title">${todo.title}</div>
@@ -50,20 +50,10 @@ class Todo{
         </div>
         <div class="item-actions">
             <div class="close">X</div>
-            <button class="complete ${this.changeHideComp()}">Complete</button>
+            <button class="complete ${todo.isComplete ?  this.#CLASSES.hideCompBut : ""}">Complete</button>
         </div>
     </div>`
     }
-
-    changeComplete(){
-        todo.isComplete ? this.#CLASSES.todo_complete : ""
-    }
-
-    changeHideComp(){
-        todo.isComplete ?  this.#CLASSES.hideCompBut : ""
-    }
-
-    
 
     createData(data){
         const newData = moment(data).format('MMMM Do YYYY')
@@ -74,7 +64,7 @@ class Todo{
         const target = e.target;
         this.#currentTodoE = e.target.closest('.item')
         if(this.#currentTodoE){
-            this.#currentTodo = this.#todos.find(e => e.id === this.#currentTodoE.id)
+            this.#currentTodo = this.#todos.find((e) => e.id === this.#currentTodoE.id)
         }
         if(e.target.classList.contains(this.#CLASSES.close)){
             this.deleteTodo(this.#currentTodo.id)
@@ -101,13 +91,6 @@ class Todo{
         })
     }
 
-    changeTodo(){
-        this.#changeEl.classList.add(this.#CLASSES.show_change);
-        this.#currentTodoE.classList.add(this.#CLASSES.item_active)
-        this.#changeTitle.value = this.#currentTodo.title;
-        this.#changeBody.value = this.#currentTodo.body;
-    }
-
     completeTodo(todo){
         todo.isComplete = true;
         this.#http.upData(todo.id, todo).then((r)=> {
@@ -115,6 +98,13 @@ class Todo{
                 this.#currentTodoE.classList.add(this.#CLASSES.todo_complete)
             }
         })
+    }
+
+    changeTodo(){
+        this.#changeEl.classList.add(this.#CLASSES.show_change);
+        this.#currentTodoE.classList.add(this.#CLASSES.item_active)
+        this.#changeTitle.value = this.#currentTodo.title;
+        this.#changeBody.value = this.#currentTodo.body;
     }
 
     createTodo(title, body){
@@ -136,7 +126,7 @@ class Todo{
         this.#currentTodo.title = this.#changeTitle.value;
         this.#currentTodo.body = this.#changeBody.value;
         this.#http.upData(this.#currentTodo.id, this.#currentTodo).then((r) => {
-            if(r && r.id){
+            if(r || r.id){
                 this.#currentTodoE.querySelector('.item-title').innerHTML = r.title
                 this.#currentTodoE.querySelector('.item-body').innerHTML = r.body
                 this.#changeEl.classList.remove(this.#CLASSES.show_change);
