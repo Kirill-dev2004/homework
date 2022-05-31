@@ -1,3 +1,9 @@
+input{
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
 button{
     cursor: pointer;
     border-radius: 5px;
@@ -12,11 +18,6 @@ button{
     font-size: 16px;
 }
 
-input{
-    padding: 10px;
-    border-radius: 5px;
-    font-size: 18px;
-}
 
 header{
     width: 750px;

@@ -1,8 +1,8 @@
 class Todo{
     static url = "todos";
     #todos = [];
-    #currentTodo = null;
-    #currentTodoE = null;
+    #actualTodo = null;
+    #actualTodoE = null;
     #todoContainer = null;
     #http = null;
     #changeEl = null;
@@ -12,10 +12,10 @@ class Todo{
         todo_complete: "todo-complete",
         item_active: "item-active",
         show_change: "show-change",
-        hideCompBut: "hide-element",
+        hide_comp_but: "hide-element",
         close: "close",
         complete: "complete",
-        todoList: "list",
+        todo_list: "list",
     }
     constructor(el, editEl){
         this.#todoContainer = el;
@@ -50,7 +50,7 @@ class Todo{
         </div>
         <div class="item-actions">
             <div class="close">X</div>
-            <button class="complete ${todo.isComplete ?  this.#CLASSES.hideCompBut : ""}">Complete</button>
+            <button class="complete ${todo.isComplete ?  this.#CLASSES.hide_comp_but : ""}">Complete</button>
         </div>
     </div>`
     }
@@ -62,20 +62,20 @@ class Todo{
 
     onTodoClick(e){
         const target = e.target;
-        this.#currentTodoE = e.target.closest('.item')
-        if(this.#currentTodoE){
-            this.#currentTodo = this.#todos.find((e) => e.id === this.#currentTodoE.id)
+        this.#actualTodoE = e.target.closest('.item')
+        if(this.#actualTodoE){
+            this.#actualTodo = this.#todos.find((e) => e.id === this.#actualTodoE.id)
         }
         if(e.target.classList.contains(this.#CLASSES.close)){
-            this.deleteTodo(this.#currentTodo.id)
-            this.completeTodo(this.#currentTodo)
+            this.deleteTodo(this.#actualTodo.id)
+            this.completeTodo(this.#actualTodo)
             return
         }
         if(e.target.classList.contains(this.#CLASSES.complete)){
-            this.completeTodo(this.#currentTodo)
+            this.completeTodo(this.#actualTodo)
             return
         }
-        if(!e.target.classList.contains(this.#CLASSES.todoList)){
+        if(!e.target.classList.contains(this.#CLASSES.todo_list)){
             this.changeTodo()
             return
         } 
@@ -86,7 +86,7 @@ class Todo{
         this.#http.delete(id).then((r) => {
             if(r.deletedCount >= 1){
                 this.#todos = this.#todos.filter(t => t.id !== id)
-                this.#currentTodoE.remove()
+                this.#actualTodoE.remove()
             }
         })
     }
@@ -95,16 +95,16 @@ class Todo{
         todo.isComplete = true;
         this.#http.upData(todo.id, todo).then((r)=> {
             if(r && r.id){
-                this.#currentTodoE.classList.add(this.#CLASSES.todo_complete)
+                this.#actualTodoE.classList.add(this.#CLASSES.todo_complete)
             }
         })
     }
 
     changeTodo(){
         this.#changeEl.classList.add(this.#CLASSES.show_change);
-        this.#currentTodoE.classList.add(this.#CLASSES.item_active)
-        this.#changeTitle.value = this.#currentTodo.title;
-        this.#changeBody.value = this.#currentTodo.body;
+        this.#actualTodoE.classList.add(this.#CLASSES.item_active)
+        this.#changeTitle.value = this.#actualTodo.title;
+        this.#changeBody.value = this.#actualTodo.body;
     }
 
     createTodo(title, body){
@@ -123,14 +123,14 @@ class Todo{
     }
 
     onSaveTodo() {
-        this.#currentTodo.title = this.#changeTitle.value;
-        this.#currentTodo.body = this.#changeBody.value;
-        this.#http.upData(this.#currentTodo.id, this.#currentTodo).then((r) => {
+        this.#actualTodo.title = this.#changeTitle.value;
+        this.#actualTodo.body = this.#changeBody.value;
+        this.#http.upData(this.#actualTodo.id, this.#actualTodo).then((r) => {
             if(r || r.id){
-                this.#currentTodoE.querySelector('.item-title').innerHTML = r.title
-                this.#currentTodoE.querySelector('.item-body').innerHTML = r.body
+                this.#actualTodoE.querySelector('.item-title').innerHTML = r.title
+                this.#actualTodoE.querySelector('.item-body').innerHTML = r.body
                 this.#changeEl.classList.remove(this.#CLASSES.show_change);
-                this.#currentTodoE.classList.remove(this.#CLASSES.item_active)
+                this.#actualTodoE.classList.remove(this.#CLASSES.item_active)
             }
         })
     }
