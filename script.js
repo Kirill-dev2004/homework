@@ -136,7 +136,7 @@ class Todo{
     }
 }
 
-const todo = new Todo(document.querySelector('.list'), document.querySelector('.edit-container'))
+const todo = new Todo(document.querySelector('.list'), document.querySelector('.change-container'))
 const titleE = document.querySelector('.title')
 const bodyE = document.querySelector('.body')
 

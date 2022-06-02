@@ -47,7 +47,7 @@ header{
     background-color: lightyellow;
 }
 
-.edit{
+.change{
     height: 200px;
     width: 40%;
     display: flex;
@@ -56,7 +56,7 @@ header{
     align-items: center;
 }
 
-.edit-container{
+.change-container{
     display: none;
     flex-direction: column;
     align-items: center;
@@ -65,7 +65,7 @@ header{
     border-radius: 10px;
 }
 
-.edit-container > p {
+.change-container > p {
     font-weight: bold;
     font-size: 24px;
 }
