@@ -17,9 +17,9 @@ class Todo{
         complete: "complete",
         todo_list: "list",
     }
-    constructor(el, editEl){
+    constructor(el, changeEl){
         this.#todoContainer = el;
-        this.#changeEl = editEl;
+        this.#changeEl = changeEl;
         this.#todoContainer.addEventListener('click', this.onTodoClick.bind(this))
         this.#changeEl.querySelector('.save').addEventListener('click', this.onSaveTodo.bind(this))
         this.#changeTitle = this.#changeEl.querySelector('.change-title')
