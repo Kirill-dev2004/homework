@@ -11,10 +11,8 @@ class Contact{
     #changeNumber = null
     #CLASSES = {
         show_change: "show-change",
-        hideCompBut: "hide-element",
         close: "close",
         complete: "complete",
-        contactList: "list",
     }
     constructor(el, changeEl){
         this.#contactContainerE = el;
