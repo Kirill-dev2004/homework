@@ -8,23 +8,25 @@
     <link rel="stylesheet" href="./style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.3/moment.min.js"></script>
     <script src="./http/http.js" defer></script>
-    <script src="./script.js" defer></script>
+    <script src="./contact.js" defer></script>
 </head>
 <body>
     <header>
-        <input type="text" class="title">
-        <input type="text" class="body">
-        <button class="create">Create Todo</button>
+        <input type="text" placeholder="Enter your name" class="name">
+        <input type="text" placeholder="Enter your surname" class="surname">
+        <input type="text" placeholder="Enter your number" class="number">
+        <button class="create">Create Contact</button>
     </header>
     <div class="content">
         <div class="list">
         </div>
         <div class="change-container">
-            <p>Change Todo</p>
+            <p>Change Contact</p>
             <div class="change">
-                <input type="text" class="change-title">
-                <input type="text" class="change-body">
-                <button class="save">Save Todo</button>
+                <input type="text" class="change-name">
+                <input type="text" class="change-surname">
+                <input type="text" class="change-number">
+                <button class="save">Save Change</button>
             </div>
         </div>
     </div>

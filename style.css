@@ -13,18 +13,19 @@ button{
 
 .create,
 .save{
-    padding: 10px 65px;
+    padding: 10px 100px;
     background-color: lightsalmon;
     font-size: 16px;
 }
 
 
 header{
-    width: 750px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     margin-bottom: 25px;
 }
+
 
 .content{
     width: 100%;
@@ -33,9 +34,8 @@ header{
 }
 
 .list{
-    border-radius: 5px;
+    border-radius: 10px;
     column-gap: 10px;
-    row-gap: 15px;
     border: 3px solid black;
     width: 700px;
     display: flex;
@@ -57,64 +57,55 @@ header{
 }
 
 .change-container{
+    
     display: none;
     flex-direction: column;
     align-items: center;
     width: 500px;
     border: 3px solid black;
     border-radius: 10px;
+    background-color: lightyellow;
 }
 
 .change-container > p {
     font-weight: bold;
     font-size: 24px;
+    margin-bottom: 100px;
 }
 
-.change-title,
-.change-body{
+.change-name,
+.change-surname,
+.change-number{
     margin-bottom: 25px;
 }
 
 .item{
+    align-items: flex-start;
     border-radius: 10px;
     display: flex;
     justify-content: space-between;
     padding: 5px;
     width: 45%;
-    height: 80px;
+    height: 100px;
     border: 1px solid #909090;
-    background-color: rgb(254, 186, 0);
+    background-color: rgb(255, 238, 248);
 }
 
-.item-content{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+.item-name{
+    font-size: 28px;
+    font-weight: bold;
 }
 
-.item-actions{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-end;
-}
-
-.item-title{
+.item-surname,
+.item-number{
     font-size: 24px;
-    font-weight: bold;
 }
 
-.close{
+.close,
+.complete{
     cursor: pointer;
-    font-weight: bold;
-}
-
-.todo-complete{
-    background-color: rgb(135, 253, 0);
-}
-
-.item-active{
-    border: 2px solid pink  ;
+    padding: 5px 10px;
+    background: none;
 }
 
 .show-change{
@@ -122,6 +113,12 @@ header{
 }
 
 .hide-element{
-    display: none;
+    display: none; 
+}
+
+.time{
+    margin-top: 50px;
+    font-size: 22px;
+    font-weight: bold;
     
 }
