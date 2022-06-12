@@ -1,3 +1,17 @@
+body::-webkit-scrollbar{
+    width: 0;
+}
+
+::-webkit-scrollbar{
+    width: 20px;
+}
+
+::-webkit-scrollbar-thumb{
+    background: lightcoral;
+    border-radius: 10px;
+    border: 2px solid white;
+}
+
 input{
     padding: 10px;
     border-radius: 5px;
@@ -30,12 +44,13 @@ header{
 .content{
     width: 100%;
     display: flex;
-    gap: 4%;
+    gap: 10%;
 }
 
 .list{
     border-radius: 10px;
     column-gap: 10px;
+    row-gap: 20px;
     border: 3px solid black;
     width: 700px;
     display: flex;
