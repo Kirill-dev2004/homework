@@ -1,6 +1,48 @@
 #canvas{
-    width: 400px;
-    height: 400px;
-    border: 2px solid black;
-    
+    border: 1px solid black;
 }
+
+.nav{
+    display: flex;
+    align-items: center;
+}
+
+.color{
+    width: 50px;
+    height: 20px;
+    margin: 0 10px;
+    border: 1px solid black;
+}
+#palette{
+    display: flex;
+    margin: 20px 0;
+}
+#palette-red{
+    background: red;
+}
+#palette-green{
+    background: green;
+}
+#palette-blue{
+    background: blue;
+}
+#palette-yellow{
+    background: yellow;
+}
+#palette-black{
+    background: black;
+}
+
+.currentBorder{
+    border: 3px solid black;
+}
+
+.buttons{
+    display: flex;
+}
+
+button{
+    margin-left: 20px;
+    padding: 5px 20px;
+}
+
